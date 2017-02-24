@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<!-- <style>
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+.jumbotron {
+	text-align: center;
+}
+</style> -->
+	<meta charset="utf-8">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'css/login.css' %}"> -->
+	<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+	<title>FEEDBACK</title>
+</head>
+
+
+<body bgcolor="red">
+<div class="jumbotron">
+{% load crispy_forms_tags %}
+
+	<h1> FEEDBACK </h1>
+	<!-- <p id="demo"> -->
+	
+<form action="{% url 'index' %}" method="post">
+{% csrf_token %}
+{{ form|crispy }}
+	<label for="Name">Name : </label><br>
+	<input type="text" name="Name" id = "Name" required/>
+	<br><br>
+
+	<label for="Department">Department : </label><br />
+	<input type="text" name="Department" id="Department" />
+<br><br>
+	<label for="Comment">Comment : </label><br />
+	<!-- <input type="text" name="Comment" id="Comment" /> -->
+	<textarea name="Comment" id="Comment" required></textarea>
+<br><br>
+<!-- </p> -->
+	<br><br>
+	<!-- <button type="button"
+onclick="document.getElementById('demo').innerHTML = 'THANKYOU FOR YOUR COMMENT !'" class="btn btn-primary">
+SUBMIT</button> -->
+
+	<button type="submit" class="btn btn-primary">SUBMIT</button>
+</form>
+<br>
+</div>
+
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

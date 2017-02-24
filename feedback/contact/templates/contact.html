@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<!-- <style>
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+.jumbotron {
+	text-align: center;
+}
+</style> -->
+	<meta charset="utf-8">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/base.css' %}">
+	<!-- <link rel="stylesheet" href="{% static 'css/login.css' %}"> -->
+	<!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
+	<title>FEEDBACK</title>
+</head>
+
+
+<body bgcolor="red">
+<div class="jumbotron">
+	<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>{{ title }}</h1>
+{% if confirm_message  %}
+<p>  {{ confirm_message }} </p>
+{% endif %}
+{% if form  %}
+<form action="{% url 'contact' %}" method="post">
+{% csrf_token %}
+	<label for="Name">Name : </label><br>
+	<input type="text" name="Name" id = "Name" required/>
+	<br><br>
+
+	<label for="email">Email : </label><br />
+	<input type="text" name="email" id="Email" />
+<br><br>
+	<label for="Comment">Comment : </label><br />
+	<!-- <input type="text" name="Comment" id="Comment" /> -->
+	<textarea name="Comment" id="Comment" required></textarea>
+
+<input type='submit' name='submit form' class = 'btn btn-default' />
+</form>
+{% endif %}
+</div>
+</div>
+
+ <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+
